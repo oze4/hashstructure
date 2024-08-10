@@ -106,7 +106,7 @@ func Hash(v interface{}, format Format, opts *HashOptions) (uint64, error) {
 		opts = &HashOptions{}
 	}
 	if opts.Hasher == nil {
-		opts.Hasher = fnv.New64()
+		opts.Hasher = fnv.New64a()
 	}
 	if opts.TagName == "" {
 		opts.TagName = "hash"

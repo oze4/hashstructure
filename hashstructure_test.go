@@ -9,6 +9,28 @@ import (
 
 var testFormat = FormatV2
 
+type Foo struct {
+	Bar string
+}
+
+func TestFoo(t *testing.T) {
+	foo1 := Foo{}
+	foo2 := Foo{}
+
+	foo1Hash, _ := Hash(foo1, FormatV2, nil)
+	foo2Hash, _ := Hash(foo2, FormatV2, nil)
+
+	fooS1 := "foo"
+	fooS2 := "foo"
+	fooS1Hash, _ := Hash(fooS1, FormatV2, nil)
+	fooS2Hash, _ := Hash(fooS2, FormatV2, nil)
+
+	t.Log(fooS1Hash)
+	t.Log(fooS2Hash)
+	t.Log(foo1Hash)
+	t.Log(foo2Hash)
+}
+
 func TestHash_identity(t *testing.T) {
 	cases := []interface{}{
 		nil,
